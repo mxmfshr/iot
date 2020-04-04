@@ -22,20 +22,26 @@ import myproto_pb2
 import myproto_pb2_grpc
 
 def get_sqrt(stub, val):
-    req = myproto_pb2.SqrtRequest(val=val)
+    req = myproto_pb2.Float(val=val)
     response = stub.GetSqrt(req)
-    print(response.res)
+    print(response.val)
 
 def get_sigma(stub, val):
-    reqs = [myproto_pb2.SigmaRequest(val=v) for v in val]
+    reqs = [myproto_pb2.Float(val=v) for v in val]
     response = stub.GetSigma(iter(reqs))
-    print(response.res)
+    print(response.val)
+
+def get_factors(stub, val):
+    req = myproto_pb2.Float(val=val)
+    responses = stub.GetFactors(req)
+    for res in responses:
+        print(res.val)
 
 def get_max(stub, val):
-    reqs = [myproto_pb2.MaxRequest(val=v) for v in val]
+    reqs = [myproto_pb2.Float(val=v) for v in val]
     responses = stub.GetMax(iter(reqs))    
     for res in responses:
-        print(res.res)
+        print(res.val)
 
 def run():
     channel = grpc.insecure_channel('localhost:50051')
@@ -46,6 +52,10 @@ def run():
 
     print('std of [10,20,30,40,50]:')
     get_sigma(stub, [10,20,30,40,50])
+    print()
+
+    print('factors of 93:')
+    get_factors(stub, 93)
     print()
 
     print('max of [3,4,1,6,2,3,7,10]:')

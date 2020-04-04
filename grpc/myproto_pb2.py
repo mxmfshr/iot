@@ -18,21 +18,21 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='mypackage',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\rmyproto.proto\x12\tmypackage\"\x1a\n\x0bSqrtRequest\x12\x0b\n\x03val\x18\x01 \x01(\x02\"\x18\n\tSqrtReply\x12\x0b\n\x03res\x18\x01 \x01(\x02\"\x1b\n\x0cSigmaRequest\x12\x0b\n\x03val\x18\x01 \x01(\x02\"\x19\n\nSigmaReply\x12\x0b\n\x03res\x18\x01 \x01(\x02\"\x19\n\nMaxRequest\x12\x0b\n\x03val\x18\x01 \x01(\x02\"\x17\n\x08MaxReply\x12\x0b\n\x03res\x18\x01 \x01(\x02\x32\xc2\x01\n\tMyService\x12\x39\n\x07GetSqrt\x12\x16.mypackage.SqrtRequest\x1a\x14.mypackage.SqrtReply\"\x00\x12>\n\x08GetSigma\x12\x17.mypackage.SigmaRequest\x1a\x15.mypackage.SigmaReply\"\x00(\x01\x12:\n\x06GetMax\x12\x15.mypackage.MaxRequest\x1a\x13.mypackage.MaxReply\"\x00(\x01\x30\x01\x62\x06proto3'
+  serialized_pb=b'\n\rmyproto.proto\x12\tmypackage\"\x14\n\x05\x46loat\x12\x0b\n\x03val\x18\x01 \x01(\x02\x32\xda\x01\n\tMyService\x12/\n\x07GetSqrt\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00\x12\x32\n\x08GetSigma\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00(\x01\x12\x34\n\nGetFactors\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00\x30\x01\x12\x32\n\x06GetMax\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00(\x01\x30\x01\x62\x06proto3'
 )
 
 
 
 
-_SQRTREQUEST = _descriptor.Descriptor(
-  name='SqrtRequest',
-  full_name='mypackage.SqrtRequest',
+_FLOAT = _descriptor.Descriptor(
+  name='Float',
+  full_name='mypackage.Float',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='val', full_name='mypackage.SqrtRequest.val', index=0,
+      name='val', full_name='mypackage.Float.val', index=0,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -51,213 +51,18 @@ _SQRTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=28,
-  serialized_end=54,
+  serialized_end=48,
 )
 
-
-_SQRTREPLY = _descriptor.Descriptor(
-  name='SqrtReply',
-  full_name='mypackage.SqrtReply',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='res', full_name='mypackage.SqrtReply.res', index=0,
-      number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=56,
-  serialized_end=80,
-)
-
-
-_SIGMAREQUEST = _descriptor.Descriptor(
-  name='SigmaRequest',
-  full_name='mypackage.SigmaRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='val', full_name='mypackage.SigmaRequest.val', index=0,
-      number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=82,
-  serialized_end=109,
-)
-
-
-_SIGMAREPLY = _descriptor.Descriptor(
-  name='SigmaReply',
-  full_name='mypackage.SigmaReply',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='res', full_name='mypackage.SigmaReply.res', index=0,
-      number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=111,
-  serialized_end=136,
-)
-
-
-_MAXREQUEST = _descriptor.Descriptor(
-  name='MaxRequest',
-  full_name='mypackage.MaxRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='val', full_name='mypackage.MaxRequest.val', index=0,
-      number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=138,
-  serialized_end=163,
-)
-
-
-_MAXREPLY = _descriptor.Descriptor(
-  name='MaxReply',
-  full_name='mypackage.MaxReply',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='res', full_name='mypackage.MaxReply.res', index=0,
-      number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=165,
-  serialized_end=188,
-)
-
-DESCRIPTOR.message_types_by_name['SqrtRequest'] = _SQRTREQUEST
-DESCRIPTOR.message_types_by_name['SqrtReply'] = _SQRTREPLY
-DESCRIPTOR.message_types_by_name['SigmaRequest'] = _SIGMAREQUEST
-DESCRIPTOR.message_types_by_name['SigmaReply'] = _SIGMAREPLY
-DESCRIPTOR.message_types_by_name['MaxRequest'] = _MAXREQUEST
-DESCRIPTOR.message_types_by_name['MaxReply'] = _MAXREPLY
+DESCRIPTOR.message_types_by_name['Float'] = _FLOAT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-SqrtRequest = _reflection.GeneratedProtocolMessageType('SqrtRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SQRTREQUEST,
+Float = _reflection.GeneratedProtocolMessageType('Float', (_message.Message,), {
+  'DESCRIPTOR' : _FLOAT,
   '__module__' : 'myproto_pb2'
-  # @@protoc_insertion_point(class_scope:mypackage.SqrtRequest)
+  # @@protoc_insertion_point(class_scope:mypackage.Float)
   })
-_sym_db.RegisterMessage(SqrtRequest)
-
-SqrtReply = _reflection.GeneratedProtocolMessageType('SqrtReply', (_message.Message,), {
-  'DESCRIPTOR' : _SQRTREPLY,
-  '__module__' : 'myproto_pb2'
-  # @@protoc_insertion_point(class_scope:mypackage.SqrtReply)
-  })
-_sym_db.RegisterMessage(SqrtReply)
-
-SigmaRequest = _reflection.GeneratedProtocolMessageType('SigmaRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SIGMAREQUEST,
-  '__module__' : 'myproto_pb2'
-  # @@protoc_insertion_point(class_scope:mypackage.SigmaRequest)
-  })
-_sym_db.RegisterMessage(SigmaRequest)
-
-SigmaReply = _reflection.GeneratedProtocolMessageType('SigmaReply', (_message.Message,), {
-  'DESCRIPTOR' : _SIGMAREPLY,
-  '__module__' : 'myproto_pb2'
-  # @@protoc_insertion_point(class_scope:mypackage.SigmaReply)
-  })
-_sym_db.RegisterMessage(SigmaReply)
-
-MaxRequest = _reflection.GeneratedProtocolMessageType('MaxRequest', (_message.Message,), {
-  'DESCRIPTOR' : _MAXREQUEST,
-  '__module__' : 'myproto_pb2'
-  # @@protoc_insertion_point(class_scope:mypackage.MaxRequest)
-  })
-_sym_db.RegisterMessage(MaxRequest)
-
-MaxReply = _reflection.GeneratedProtocolMessageType('MaxReply', (_message.Message,), {
-  'DESCRIPTOR' : _MAXREPLY,
-  '__module__' : 'myproto_pb2'
-  # @@protoc_insertion_point(class_scope:mypackage.MaxReply)
-  })
-_sym_db.RegisterMessage(MaxReply)
+_sym_db.RegisterMessage(Float)
 
 
 
@@ -267,16 +72,16 @@ _MYSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=191,
-  serialized_end=385,
+  serialized_start=51,
+  serialized_end=269,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetSqrt',
     full_name='mypackage.MyService.GetSqrt',
     index=0,
     containing_service=None,
-    input_type=_SQRTREQUEST,
-    output_type=_SQRTREPLY,
+    input_type=_FLOAT,
+    output_type=_FLOAT,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -284,17 +89,26 @@ _MYSERVICE = _descriptor.ServiceDescriptor(
     full_name='mypackage.MyService.GetSigma',
     index=1,
     containing_service=None,
-    input_type=_SIGMAREQUEST,
-    output_type=_SIGMAREPLY,
+    input_type=_FLOAT,
+    output_type=_FLOAT,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetFactors',
+    full_name='mypackage.MyService.GetFactors',
+    index=2,
+    containing_service=None,
+    input_type=_FLOAT,
+    output_type=_FLOAT,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='GetMax',
     full_name='mypackage.MyService.GetMax',
-    index=2,
+    index=3,
     containing_service=None,
-    input_type=_MAXREQUEST,
-    output_type=_MAXREPLY,
+    input_type=_FLOAT,
+    output_type=_FLOAT,
     serialized_options=None,
   ),
 ])
