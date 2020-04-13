@@ -34,11 +34,6 @@ def send_data(stub, id, text):
 def run():
     channel = grpc.insecure_channel('localhost:50051')
     stub = myproto_pb2_grpc.MyServiceStub(channel)
-<<<<<<< HEAD
-    id = 123
-    text = ''
-    send_data(stub, id, text)
-=======
     reader = SimpleMFRC522()
 
     while True:
@@ -48,8 +43,6 @@ def run():
     
     GPIO.cleanup()
     channel.close()
->>>>>>> b3f6e2bd321c346ea73999bca6c89c0b1d420b53
-
 
 if __name__ == '__main__':
     logging.basicConfig()
