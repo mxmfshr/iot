@@ -21,18 +21,50 @@ import grpc
 import myproto_pb2
 import myproto_pb2_grpc
 
-import math
-import numpy as np
-from functools import reduce
+import sqlite3
+import pandas as pd
+from datetime import datetime
+
+
+
 
 class MyService(myproto_pb2_grpc.MyServiceServicer):
-    def process_data(self, request, context):
+    def __init__(self):
+        self.conn = sqlite3.connect('./db.sqlite', check_same_thread=False)
+        self.cursor = self.conn.cursor()
+        
+    def get_table(self):
+    	return pd.DataFrame(self.cursor.execute("SELECT * FROM USERS"), columns=['id','card_id','card_text','last_used','status'])[['card_id', 'last_used', 'status']]
+
+    def is_authorized(self, card_id):
+        return True if (self.cursor.execute("SELECT COUNT(*) FROM authorized_users").fetchall()[0][0]) > 0 else False
+
+    def use_card(self, card_id):
+        if not self.is_authorized(card_id):
+            return "Not authorized"
+
+        timestamp = datetime.now().strftime("%H:%M, %d %B %Y, %A")
+        status = 'in' if (self.cursor.execute(f"SELECT status FROM users WHERE card_id = {card_id}").fetchall()[0][0]) == 'out' else 'out'
+        update_query = f"""
+        UPDATE
+          users
+        SET
+          last_used = "{timestamp}",
+          status = "{status}"
+        WHERE card_id = {card_id}
+        """
+        self.cursor.execute(update_query)
+        return "Card information updated"
+
+    def SendData(self, request, context):
         id = request.id
         text = request.text
-        return myproto_pb2.Result(text=res)   
+        res = self.use_card(id)
+        print(self.get_table())
+        return myproto_pb2.Result(result=res)   
 
 def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=1))
     myproto_pb2_grpc.add_MyServiceServicer_to_server(MyService(), server)
     server.add_insecure_port('[::]:50051')
     server.start()

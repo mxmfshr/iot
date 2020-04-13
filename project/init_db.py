@@ -25,8 +25,8 @@ create_users = """
 INSERT INTO
   users (card_id, card_text, last_used, status)
 VALUES
-  (123, '', '2020-04-15T21:00:00.000000', 'out'),
-  (456, '', '2020-04-07T20:00:00.000000', 'out')
+  (123, '', '01:23, 5 April 2020, test', 'out'),
+  (456, '', '12:34, 9 April 2020, test', 'out')
 """
 
 create_authorized_users = """

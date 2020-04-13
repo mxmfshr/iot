@@ -30,8 +30,8 @@ def send_data(stub, id, text):
 def run():
     channel = grpc.insecure_channel('localhost:50051')
     stub = myproto_pb2_grpc.MyServiceStub(channel)
-    id = None
-    text = None
+    id = 123
+    text = ''
     send_data(stub, id, text)
 
 
