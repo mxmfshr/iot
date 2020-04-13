@@ -14,25 +14,10 @@ class MyServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetSqrt = channel.unary_unary(
-                '/mypackage.MyService/GetSqrt',
-                request_serializer=myproto__pb2.Float.SerializeToString,
-                response_deserializer=myproto__pb2.Float.FromString,
-                )
-        self.GetSigma = channel.stream_unary(
-                '/mypackage.MyService/GetSigma',
-                request_serializer=myproto__pb2.Float.SerializeToString,
-                response_deserializer=myproto__pb2.Float.FromString,
-                )
-        self.GetFactors = channel.unary_stream(
-                '/mypackage.MyService/GetFactors',
-                request_serializer=myproto__pb2.Float.SerializeToString,
-                response_deserializer=myproto__pb2.Float.FromString,
-                )
-        self.GetMax = channel.stream_stream(
-                '/mypackage.MyService/GetMax',
-                request_serializer=myproto__pb2.Float.SerializeToString,
-                response_deserializer=myproto__pb2.Float.FromString,
+        self.SendData = channel.unary_unary(
+                '/mypackage.MyService/SendData',
+                request_serializer=myproto__pb2.Card.SerializeToString,
+                response_deserializer=myproto__pb2.Result.FromString,
                 )
 
 
@@ -40,25 +25,7 @@ class MyServiceServicer(object):
     """The greeting service definition.
     """
 
-    def GetSqrt(self, request, context):
-        """Missing associated documentation comment in .proto file"""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetSigma(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file"""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetFactors(self, request, context):
-        """Missing associated documentation comment in .proto file"""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetMax(self, request_iterator, context):
+    def SendData(self, request, context):
         """Missing associated documentation comment in .proto file"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -67,25 +34,10 @@ class MyServiceServicer(object):
 
 def add_MyServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetSqrt': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSqrt,
-                    request_deserializer=myproto__pb2.Float.FromString,
-                    response_serializer=myproto__pb2.Float.SerializeToString,
-            ),
-            'GetSigma': grpc.stream_unary_rpc_method_handler(
-                    servicer.GetSigma,
-                    request_deserializer=myproto__pb2.Float.FromString,
-                    response_serializer=myproto__pb2.Float.SerializeToString,
-            ),
-            'GetFactors': grpc.unary_stream_rpc_method_handler(
-                    servicer.GetFactors,
-                    request_deserializer=myproto__pb2.Float.FromString,
-                    response_serializer=myproto__pb2.Float.SerializeToString,
-            ),
-            'GetMax': grpc.stream_stream_rpc_method_handler(
-                    servicer.GetMax,
-                    request_deserializer=myproto__pb2.Float.FromString,
-                    response_serializer=myproto__pb2.Float.SerializeToString,
+            'SendData': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendData,
+                    request_deserializer=myproto__pb2.Card.FromString,
+                    response_serializer=myproto__pb2.Result.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -99,7 +51,7 @@ class MyService(object):
     """
 
     @staticmethod
-    def GetSqrt(request,
+    def SendData(request,
             target,
             options=(),
             channel_credentials=None,
@@ -108,56 +60,8 @@ class MyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/mypackage.MyService/GetSqrt',
-            myproto__pb2.Float.SerializeToString,
-            myproto__pb2.Float.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetSigma(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/mypackage.MyService/GetSigma',
-            myproto__pb2.Float.SerializeToString,
-            myproto__pb2.Float.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetFactors(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/mypackage.MyService/GetFactors',
-            myproto__pb2.Float.SerializeToString,
-            myproto__pb2.Float.FromString,
-            options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetMax(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/mypackage.MyService/GetMax',
-            myproto__pb2.Float.SerializeToString,
-            myproto__pb2.Float.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mypackage.MyService/SendData',
+            myproto__pb2.Card.SerializeToString,
+            myproto__pb2.Result.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)

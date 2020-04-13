@@ -18,23 +18,30 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='mypackage',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\rmyproto.proto\x12\tmypackage\"\x14\n\x05\x46loat\x12\x0b\n\x03val\x18\x01 \x01(\x02\x32\xda\x01\n\tMyService\x12/\n\x07GetSqrt\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00\x12\x32\n\x08GetSigma\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00(\x01\x12\x34\n\nGetFactors\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00\x30\x01\x12\x32\n\x06GetMax\x12\x10.mypackage.Float\x1a\x10.mypackage.Float\"\x00(\x01\x30\x01\x62\x06proto3'
+  serialized_pb=b'\n\rmyproto.proto\x12\tmypackage\" \n\x04\x43\x61rd\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04text\x18\x02 \x01(\t\"\x18\n\x06Result\x12\x0e\n\x06result\x18\x01 \x01(\t2=\n\tMyService\x12\x30\n\x08SendData\x12\x0f.mypackage.Card\x1a\x11.mypackage.Result\"\x00\x62\x06proto3'
 )
 
 
 
 
-_FLOAT = _descriptor.Descriptor(
-  name='Float',
-  full_name='mypackage.Float',
+_CARD = _descriptor.Descriptor(
+  name='Card',
+  full_name='mypackage.Card',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='val', full_name='mypackage.Float.val', index=0,
-      number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
+      name='id', full_name='mypackage.Card.id', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='text', full_name='mypackage.Card.text', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -51,18 +58,57 @@ _FLOAT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=28,
-  serialized_end=48,
+  serialized_end=60,
 )
 
-DESCRIPTOR.message_types_by_name['Float'] = _FLOAT
+
+_RESULT = _descriptor.Descriptor(
+  name='Result',
+  full_name='mypackage.Result',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='result', full_name='mypackage.Result.result', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=62,
+  serialized_end=86,
+)
+
+DESCRIPTOR.message_types_by_name['Card'] = _CARD
+DESCRIPTOR.message_types_by_name['Result'] = _RESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Float = _reflection.GeneratedProtocolMessageType('Float', (_message.Message,), {
-  'DESCRIPTOR' : _FLOAT,
+Card = _reflection.GeneratedProtocolMessageType('Card', (_message.Message,), {
+  'DESCRIPTOR' : _CARD,
   '__module__' : 'myproto_pb2'
-  # @@protoc_insertion_point(class_scope:mypackage.Float)
+  # @@protoc_insertion_point(class_scope:mypackage.Card)
   })
-_sym_db.RegisterMessage(Float)
+_sym_db.RegisterMessage(Card)
+
+Result = _reflection.GeneratedProtocolMessageType('Result', (_message.Message,), {
+  'DESCRIPTOR' : _RESULT,
+  '__module__' : 'myproto_pb2'
+  # @@protoc_insertion_point(class_scope:mypackage.Result)
+  })
+_sym_db.RegisterMessage(Result)
 
 
 
@@ -72,43 +118,16 @@ _MYSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=51,
-  serialized_end=269,
+  serialized_start=88,
+  serialized_end=149,
   methods=[
   _descriptor.MethodDescriptor(
-    name='GetSqrt',
-    full_name='mypackage.MyService.GetSqrt',
+    name='SendData',
+    full_name='mypackage.MyService.SendData',
     index=0,
     containing_service=None,
-    input_type=_FLOAT,
-    output_type=_FLOAT,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetSigma',
-    full_name='mypackage.MyService.GetSigma',
-    index=1,
-    containing_service=None,
-    input_type=_FLOAT,
-    output_type=_FLOAT,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetFactors',
-    full_name='mypackage.MyService.GetFactors',
-    index=2,
-    containing_service=None,
-    input_type=_FLOAT,
-    output_type=_FLOAT,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetMax',
-    full_name='mypackage.MyService.GetMax',
-    index=3,
-    containing_service=None,
-    input_type=_FLOAT,
-    output_type=_FLOAT,
+    input_type=_CARD,
+    output_type=_RESULT,
     serialized_options=None,
   ),
 ])
