@@ -22,7 +22,7 @@ service MyService {
 }
 
 message Card {
-  int32 id = 1;
+  string id = 1;
   string text = 2;
 }
 

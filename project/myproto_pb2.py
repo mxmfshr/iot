@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='mypackage',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\rmyproto.proto\x12\tmypackage\" \n\x04\x43\x61rd\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04text\x18\x02 \x01(\t\"\x18\n\x06Result\x12\x0e\n\x06result\x18\x01 \x01(\t2=\n\tMyService\x12\x30\n\x08SendData\x12\x0f.mypackage.Card\x1a\x11.mypackage.Result\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\rmyproto.proto\x12\tmypackage\" \n\x04\x43\x61rd\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04text\x18\x02 \x01(\t\"\x18\n\x06Result\x12\x0e\n\x06result\x18\x01 \x01(\t2=\n\tMyService\x12\x30\n\x08SendData\x12\x0f.mypackage.Card\x1a\x11.mypackage.Result\"\x00\x62\x06proto3'
 )
 
 
@@ -33,8 +33,8 @@ _CARD = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='mypackage.Card.id', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
