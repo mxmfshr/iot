@@ -26,7 +26,7 @@ import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 
 def send_data(stub, id, text):
-    req = myproto_pb2.Card(id=id, text=text)
+    req = myproto_pb2.Card(id=str(id), text=text)
     response = stub.SendData(req)
     print(response.result)
 

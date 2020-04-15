@@ -7,7 +7,7 @@ cursor = conn.cursor()
 create_users_table = """
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  card_id INTEGER,
+  card_id TEXT,
   card_text TEXT,
   last_used TEXT,
   status TEXT
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS users (
 create_authorized_users_table = """
 CREATE TABLE IF NOT EXISTS authorized_users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  card_id INTEGER
+  card_id TEXT
 );
 """
 
@@ -25,15 +25,15 @@ create_users = """
 INSERT INTO
   users (card_id, card_text, last_used, status)
 VALUES
-  (123, '', '01:23, 5 April 2020, test', 'out'),
-  (456, '', '12:34, 9 April 2020, test', 'out')
+  ('1071024747288', '', '01:23, 5 April 2020, test', 'out'),
+  ('934940680731', '', '12:34, 9 April 2020, test', 'out')
 """
 
 create_authorized_users = """
 INSERT INTO
   authorized_users (card_id)
 VALUES
- (123)
+ ('1071024747288')
 """
 
 cursor.execute("DROP TABLE IF EXISTS users")
